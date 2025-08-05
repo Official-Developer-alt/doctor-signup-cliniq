@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, ChangeEvent, FormEvent } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 
 export default function DoctorRegister() {
   const router = useRouter();
+
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -14,13 +15,13 @@ export default function DoctorRegister() {
     experience: '',
   });
 
-  const [error, setError] = useState('');
+  const [error, setError] = useState<string>('');
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {

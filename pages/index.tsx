@@ -1,30 +1,43 @@
-import { useState } from 'react'; 
+import { useState, ChangeEvent, FormEvent } from 'react';
 import Link from 'next/link';
 import Navbar from '../components/Navbar';
 
-export default function Login() {
-  const [form, setForm] = useState({ email: '', password: '' });
+interface LoginForm {
+  email: string;
+  password: string;
+}
 
-  const handleChange = e => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+export default function Login() {
+  const [form, setForm] = useState<LoginForm>({ email: '', password: '' });
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await fetch('/api/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(form),
-    });
-    const data = await res.json();
-    alert(data.message); // Handle success/failure
+
+    try {
+      const res = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+      alert(data.message); // Display message
+    } catch (error) {
+      console.error('Login failed:', error);
+      alert('Something went wrong. Please try again.');
+    }
   };
 
   return (
     <>
       <Navbar />
       <div className="flex min-h-screen bg-[#e7f0fd]">
-        {/* Left Section - Quote */}
+        {/* Left Section */}
         <div className="hidden md:flex flex-col justify-center items-center w-1/2 bg-[#153a78] text-white p-10 space-y-8">
           <h1 className="text-3xl font-bold">Welcome Back, Doctor!</h1>
           <p className="text-lg italic">"The art of medicine consists of amusing the patient while nature cures the disease."</p>
@@ -32,7 +45,7 @@ export default function Login() {
           <p className="text-lg italic">"Saving lives is not a job, it's a passion."</p>
         </div>
 
-        {/* Right Section - Login Form */}
+        {/* Right Section */}
         <div className="flex justify-center items-center w-full md:w-1/2 p-6">
           <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-xl">
             <h2 className="text-2xl font-bold mb-6 text-center text-[#153a78]">

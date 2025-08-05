@@ -1,8 +1,9 @@
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import Navbar from '../components/Navbar';
+import type { NextPage } from 'next';
 
-export default function RegisterSuccess() {
+const RegisterSuccess: NextPage = () => {
   const router = useRouter();
   const { name, email, mobile, specialization } = router.query;
 
@@ -12,7 +13,7 @@ export default function RegisterSuccess() {
     }, 5000);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [router]);
 
   return (
     <>
@@ -36,4 +37,6 @@ export default function RegisterSuccess() {
       </div>
     </>
   );
-}
+};
+
+export default RegisterSuccess;
