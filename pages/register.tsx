@@ -89,58 +89,78 @@ export default function DoctorRegister() {
             <h2 className="text-3xl font-bold mb-6 text-center text-blue-900">Create Account</h2>
             {error && <p className="text-red-600 mb-4 text-center">{error}</p>}
 
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
             <input
               type="text"
               name="name"
+              id="name"
               placeholder="Enter your name"
               onChange={handleChange}
               required
               className="w-full p-2 mb-3 border border-gray-300 rounded text-blue-900"
             />
+
+            <label htmlFor="mobile" className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
             <input
               type="text"
               name="mobile"
+              id="mobile"
               placeholder="Enter your phone"
               onChange={handleChange}
               required
               className="w-full p-2 mb-3 border border-gray-300 rounded text-blue-900"
             />
+
+            <label htmlFor="specialization" className="block text-sm font-medium text-gray-700 mb-1">Specialization</label>
             <input
               type="text"
               name="specialization"
+              id="specialization"
               placeholder="Enter your specialization"
               onChange={handleChange}
               required
               className="w-full p-2 mb-3 border border-gray-300 rounded text-blue-900"
             />
+
+            <label htmlFor="qualification" className="block text-sm font-medium text-gray-700 mb-1">Qualification</label>
             <input
               type="text"
               name="qualification"
+              id="qualification"
               placeholder="Enter your qualification (e.g. MBBS, MD)"
               onChange={handleChange}
               required
               className="w-full p-2 mb-3 border border-gray-300 rounded text-blue-900"
             />
+
+            <label htmlFor="experience" className="block text-sm font-medium text-gray-700 mb-1">Experience (in years)</label>
             <input
               type="number"
               name="experience"
+              id="experience"
               placeholder="Years of experience"
               onChange={handleChange}
               required
               min="0"
               className="w-full p-2 mb-3 border border-gray-300 rounded text-blue-900"
             />
+
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
             <input
               type="email"
               name="email"
+              id="email"
               placeholder="Enter your email"
               onChange={handleChange}
               required
               className="w-full p-2 mb-3 border border-gray-300 rounded text-blue-900"
             />
+
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">Password</label>
             <input
               type="password"
               name="password"
+              id="password"
               placeholder="Create a password"
               onChange={handleChange}
               required

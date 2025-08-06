@@ -53,24 +53,34 @@ export default function Login() {
             </h2>
 
             <form onSubmit={handleSubmit}>
+              <label htmlFor="email" className="block mb-1 text-sm font-medium text-gray-700">
+                Email Address
+              </label>
               <input
                 type="email"
                 name="email"
+                id="email"
                 placeholder="you@example.com"
                 value={form.email}
                 onChange={handleChange}
                 className="w-full mb-4 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
                 required
               />
+
+              <label htmlFor="password" className="block mb-1 text-sm font-medium text-gray-700">
+                Password
+              </label>
               <input
                 type="password"
                 name="password"
+                id="password"
                 placeholder="Your password"
                 value={form.password}
                 onChange={handleChange}
                 className="w-full mb-6 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
                 required
               />
+
               <button
                 type="submit"
                 className="w-full bg-[#153a78] hover:bg-blue-800 text-white font-medium py-2 rounded-md transition"
@@ -82,7 +92,7 @@ export default function Login() {
             <p className="text-center mt-4 text-sm text-gray-600">
               Don’t have an account?{' '}
               <Link href="/register" className="text-blue-700 font-semibold">
-                Then register
+                Register
               </Link>
             </p>
           </div>
