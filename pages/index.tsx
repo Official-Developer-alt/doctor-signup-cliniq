@@ -49,7 +49,7 @@ export default function Login() {
         <div className="flex justify-center items-center w-full md:w-1/2 p-6">
           <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-xl">
             <h2 className="text-2xl font-bold mb-6 text-center text-[#153a78]">
-              Doctor's Sign In
+              Doctor's Login
             </h2>
 
             <form onSubmit={handleSubmit}>
